@@ -1,0 +1,651 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>AI Assignment Helper | Free Online Homework & Assignment Tool</title>
+  <meta name="description" content="Free AI Assignment Helper for students: Get structured, clear answers instantly. Supports School, College, University levels with academic tone. No sign-up, client-side privacy.">
+  <meta name="keywords" content="assignment helper, ai assignment writer, homework help tool, generate assignment answers online, student assignment generator, academic writing helper free">
+  <!-- SEO & Open Graph -->
+  <meta property="og:title" content="AI Assignment Helper – Structured & Clear Assignment Answers Instantly">
+  <meta property="og:description" content="Generate well-organized assignment answers with introduction, main body, examples, and conclusion. Academic productivity tool for students.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- AdSense readiness (placeholder) -->
+  <meta name="google-adsense-account" content="placeholder-publisher-id">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background: #f6f9fc;
+      color: #0a2540;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    /* main content – 2/3 desktop */
+    .main-content {
+      flex: 2 1 700px;
+      min-width: 0;
+    }
+
+    /* sidebar – 1/3 desktop */
+    .sidebar {
+      flex: 1 1 320px;
+      background: white;
+      border-radius: 28px;
+      padding: 20px;
+      box-shadow: 0 15px 35px -10px rgba(10, 37, 64, 0.1);
+      height: fit-content;
+      border: 1px solid rgba(0,119,255,0.08);
+      display: none; /* hidden on mobile */
+    }
+
+    @media (min-width: 992px) {
+      .sidebar {
+        display: block;
+      }
+    }
+
+    /* cards */
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 12px 30px -8px rgba(0, 70, 150, 0.08);
+      border: 1px solid rgba(0, 112, 243, 0.05);
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 20px 35px -10px rgba(0,100,220,0.15);
+    }
+
+    /* ad placeholders */
+    .ad-space {
+      background: #eef3fa;
+      border: 2px dashed #a0c1e2;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1e4a7a;
+      font-weight: 500;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 16px 0;
+      padding: 16px 8px;
+      text-align: center;
+    }
+
+    .ad-banner {
+      width: 100%;
+      min-height: 90px;
+      background: #e2ecf7;
+    }
+
+    .ad-rectangle {
+      width: 100%;
+      min-height: 250px;
+      background: #dbe7f3;
+      margin: 20px 0;
+    }
+
+    .ad-footer {
+      min-height: 90px;
+      background: #d9e6f2;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: #0b2b4a;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 28px 0 16px;
+      color: #17345c;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 24px 0 12px;
+      color: #1f4172;
+    }
+
+    label {
+      font-weight: 500;
+      color: #1a3d62;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    textarea, input, select {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid #bdd3e8;
+      border-radius: 20px;
+      font-size: 1rem;
+      background: white;
+      transition: 0.15s;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,30,60,0.03);
+    }
+
+    textarea:focus, input:focus, select:focus {
+      outline: none;
+      border-color: #2d7aff;
+      box-shadow: 0 0 0 4px rgba(45, 122, 255, 0.12);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+
+    .form-group {
+      flex: 1 1 180px;
+    }
+
+    .btn {
+      background: #0a4c8c;
+      color: white;
+      border: none;
+      padding: 16px 32px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 40px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+      box-shadow: 0 10px 20px -5px #0a4c8c60;
+      letter-spacing: 0.3px;
+    }
+
+    .btn:hover {
+      background: #0b5ca6;
+      box-shadow: 0 15px 25px -5px #0a4c8caa;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    /* output area */
+    .output-card {
+      background: #f0f7ff;
+      border-left: 6px solid #0a4c8c;
+      border-radius: 28px;
+      padding: 24px;
+      margin: 28px 0 16px;
+      word-wrap: break-word;
+      animation: gentleFade 0.4s ease;
+    }
+
+    @keyframes gentleFade {
+      0% { opacity: 0.3; transform: translateY(6px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .answer-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      justify-content: space-between;
+    }
+
+    .wordcount {
+      background: #d4e3fd;
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-weight: 500;
+      color: #10345e;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-outline {
+      background: white;
+      border: 1px solid #0a4c8c;
+      color: #0a4c8c;
+      padding: 10px 18px;
+      border-radius: 40px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.1s;
+      font-size: 0.9rem;
+    }
+
+    .btn-outline:hover {
+      background: #e3efff;
+    }
+
+    .answer-body {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: #102a41;
+    }
+
+    .answer-body h4 {
+      font-size: 1.3rem;
+      margin: 24px 0 8px;
+      color: #0b3470;
+    }
+
+    .answer-body p {
+      margin-bottom: 16px;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px solid rgba(0,60,120,0.1);
+      margin: 32px 0;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      justify-content: center;
+      padding: 24px 0 8px;
+    }
+
+    .footer-links a {
+      color: #1d4d7c;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .copyright {
+      text-align: center;
+      color: #3c5e82;
+      font-size: 0.95rem;
+      margin-top: 20px;
+    }
+
+    .disclaimer {
+      background: #fdf6e6;
+      border-radius: 24px;
+      padding: 18px;
+      font-style: italic;
+      border-left: 4px solid #f0b400;
+      margin: 24px 0;
+    }
+
+    /* contact form */
+    .contact-form input, .contact-form textarea {
+      background: #fafdff;
+    }
+
+    /* responsive tweaks */
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8rem; }
+      .card { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- main content area -->
+  <div class="main-content">
+    <!-- top banner ad -->
+    <div class="ad-space ad-banner">📢 Ad Space – 728x90 (Banner)</div>
+
+    <h1>AI Assignment Helper – Get Structured & Clear Assignment Answers Instantly</h1>
+
+    <!-- tool card -->
+    <div class="card">
+      <h2 style="margin-top: 0; font-size: 1.8rem;">⚙️ Generate Your Assignment</h2>
+      <form id="assignmentForm">
+        <label for="question">📝 Assignment Question</label>
+        <textarea id="question" placeholder="e.g., Explain the causes of World War II..." required></textarea>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="subject">📚 Subject</label>
+            <input type="text" id="subject" placeholder="e.g., History, Biology" value="General">
+          </div>
+          <div class="form-group">
+            <label for="level">🎓 Education Level</label>
+            <select id="level">
+              <option>School</option>
+              <option selected>College</option>
+              <option>University</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="answerType">🔖 Answer Type</label>
+            <select id="answerType">
+              <option>Short Answer</option>
+              <option selected>Long Answer</option>
+              <option>Detailed Explanation</option>
+              <option>Step-by-step Solution</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="tone">🎼 Tone</label>
+            <select id="tone">
+              <option>Academic</option>
+              <option>Simple</option>
+              <option>Professional</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="length">📏 Length</label>
+            <select id="length">
+              <option>Short</option>
+              <option selected>Medium</option>
+              <option>Detailed</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="button" class="btn" id="generateBtn">✨ Generate Answer</button>
+      </form>
+    </div>
+
+    <!-- output section -->
+    <div id="outputSection" style="display: none;">
+      <div class="output-card" id="answerContainer">
+        <div class="answer-header">
+          <span class="wordcount" id="wordCountDisplay">Words: 0</span>
+          <div class="btn-group">
+            <button class="btn-outline" id="copyBtn">📋 Copy</button>
+            <button class="btn-outline" id="copyAllBtn">📑 Copy All</button>
+            <button class="btn-outline" id="downloadBtn">⬇️ .txt</button>
+          </div>
+        </div>
+        <div class="answer-body" id="answerBody"></div>
+        <div style="margin-top:20px;"><small>⚠️ Educational assistance only. Always review.</small></div>
+      </div>
+    </div>
+
+    <!-- mid-content ad (after generated answer) -->
+    <div class="ad-space ad-rectangle">📢 Ad Space – 300x250 (Mid-content)</div>
+
+    <!-- SEO content (1500+ words) -->
+    <div class="card" style="background: #ffffff;">
+      <h2>📘 What is an AI Assignment Helper?</h2>
+      <p>An AI Assignment Helper is a smart academic companion that generates structured, well-organized answers for your homework and assignments. It provides an introduction, main explanation, examples, and a conclusion — exactly what professors look for. Unlike generic chatbots, this tool is designed specifically for students, maintaining academic tone, proper formatting, and clarity.</p>
+
+      <h3>🎯 Importance of Structured Answers</h3>
+      <p>Well-structured answers improve readability and grades. Academic writing demands logical flow: hook the reader with an introduction, build arguments with evidence, and close with a strong conclusion. Our tool mimics this pattern. Whether you're in school, college, or university, a coherent structure helps convey understanding.</p>
+
+      <h3>✍️ How to Write Better Assignments</h3>
+      <p>Start with research, then create an outline. Use this helper to generate sample structures and adapt them. Always personalize the content, cite sources, and respect academic integrity. The tool provides a skeleton — you add the depth.</p>
+
+      <h3>🧠 Academic Integrity Tips</h3>
+      <p>This tool is a learning aid, not a cheating tool. Use generated answers as references to form your own arguments. Never submit AI output directly without rewriting in your own words. Plagiarism detection tools are advanced, but original thinking always wins.</p>
+
+      <h3>🚫 Common Assignment Mistakes</h3>
+      <p>Off-topic answers, lack of structure, informal tone, and missing examples. Our helper reduces these by staying focused on the question and using academic phrasing. Combine with your knowledge for best results.</p>
+
+      <h3>⚙️ How This Tool Works (Client-Side)</h3>
+      <p>Everything runs in your browser: no data is sent to any server. We use JavaScript to generate dynamic, structured answers based on your inputs — subject, level, tone, length, and type. You can copy, download, and reuse the text locally. Zero storage, zero tracking.</p>
+
+      <h3>🧑‍🎓 Who Should Use It?</h3>
+      <p>High school students, college undergraduates, university postgraduates, ESL learners, and anyone needing quick assignment outlines. Also great for teachers who want to demonstrate answer structures.</p>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <div class="card">
+      <h2>❓ Frequently Asked Questions</h2>
+      <div itemscope itemtype="https://schema.org/FAQPage">
+        <h3 itemprop="name">1. What is an AI Assignment Helper?</h3>
+        <div itemprop="acceptedAnswer">It’s a browser-based tool that generates structured academic answers with introduction, body, examples, and conclusion.</div>
+        <h3>2. Is this tool free?</h3>
+        <div>Yes, 100% free. No hidden fees, no sign-ups.</div>
+        <h3>3. Can I use this for university assignments?</h3>
+        <div>Yes, but always adapt and reference properly. It's a guide, not a submission.</div>
+        <h3>4. Does it avoid plagiarism?</h3>
+        <div>The output is generic and educational; you must rewrite to avoid self-plagiarism issues.</div>
+        <h3>5. Does this tool store my content?</h3>
+        <div>No. Everything is processed locally in your browser. We don't have servers.</div>
+        <h3>6. Can I customize the answer?</h3>
+        <div>Absolutely! You choose subject, tone, length, and type. Then copy and edit further.</div>
+      </div>
+    </div>
+
+    <!-- contact form -->
+    <div class="card contact-form">
+      <h2>📬 Contact Us</h2>
+      <form action="https://formsubmit.co/as9329387575@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="#">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+        <label for="message">Message</label>
+        <textarea name="message" id="message" rows="4" required></textarea>
+        <button type="submit" class="btn" style="background: #1f6392;">Send Message</button>
+      </form>
+    </div>
+
+    <!-- privacy & terms combined -->
+    <div class="card">
+      <h2>🔒 Privacy Policy & Terms</h2>
+      <p><strong>No content storage:</strong> All processing is client-side. We never see or store your assignment text. <strong>Cookies:</strong> This site may use cookies for Adsense (third-party). We don’t sell personal data. Contact: as9329387575@gmail.com</p>
+      <p><strong>Terms:</strong> Use for educational assistance only. No liability for misuse. Content is for guidance. All intellectual property rights belong to the site operator. Governing law: local jurisdiction.</p>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <div class="footer-links">
+        <a href="#">Home</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="copyright">
+        © 2025 AI Assignment Helper – Built for Students & Learners
+      </div>
+    </footer>
+  </div>
+
+  <!-- sidebar (desktop only) -->
+  <aside class="sidebar">
+    <div style="margin-bottom: 24px;">
+      <h3 style="margin-top: 0;">📌 Quick Guide</h3>
+      <ul style="margin-left: 20px; color: #2a4e77;">
+        <li>Enter your question</li>
+        <li>Pick level, tone, length</li>
+        <li>Click generate</li>
+        <li>Copy or download</li>
+      </ul>
+    </div>
+    <div class="ad-space" style="min-height:250px;">📢 Ad Space – 300x250 (Sidebar)</div>
+    <div style="margin-top: 30px; font-size: 0.9rem; background: #eef5fd; padding: 20px; border-radius: 24px;">
+      <p>⚡ <strong>Academic integrity first</strong><br>Use as a reference, not final submission.</p>
+    </div>
+  </aside>
+</div>
+
+<!-- footer ad outside container to make full width? placed inside container but after main, but we also want footer ad -->
+<div class="container" style="margin-top: 16px;">
+  <div class="main-content">
+    <div class="ad-space ad-footer">📢 Ad Space – 728x90 (Footer)</div>
+  </div>
+  <div class="sidebar"></div>
+</div>
+
+<script>
+  (function() {
+    const generateBtn = document.getElementById('generateBtn');
+    const outputSection = document.getElementById('outputSection');
+    const answerBody = document.getElementById('answerBody');
+    const wordCountSpan = document.getElementById('wordCountDisplay');
+    const copyBtn = document.getElementById('copyBtn');
+    const copyAllBtn = document.getElementById('copyAllBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    // get form elements
+    const questionInput = document.getElementById('question');
+    const subjectInput = document.getElementById('subject');
+    const levelSelect = document.getElementById('level');
+    const answerTypeSelect = document.getElementById('answerType');
+    const toneSelect = document.getElementById('tone');
+    const lengthSelect = document.getElementById('length');
+
+    // structured answer generator (mock but academic)
+    function generateAnswer() {
+      const question = questionInput.value.trim() || "No question provided";
+      const subject = subjectInput.value.trim() || "General";
+      const level = levelSelect.value;
+      const type = answerTypeSelect.value;
+      const tone = toneSelect.value;
+      const length = lengthSelect.value;
+
+      // length factor
+      let detailLevel = 2; // medium
+      if (length === 'Short') detailLevel = 1;
+      if (length === 'Detailed') detailLevel = 3;
+
+      // tone adjustment phrases
+      let toneIntro = "";
+      if (tone === 'Simple') toneIntro = "In simple terms, ";
+      else if (tone === 'Professional') toneIntro = "From a professional standpoint, ";
+      else toneIntro = "Academically, ";
+
+      // build intro, body, examples, conclusion
+      const intro = `Introduction: This assignment explores the topic: "${question}" within the subject of ${subject}. Aimed at ${level} level, we will examine key aspects and relevant contexts. ${toneIntro}the following sections provide a structured overview.\n\n`;
+      
+      let body = "";
+      if (type.includes("Short")) {
+        body = "Main explanation: The core idea revolves around fundamental principles. In short, we must consider primary factors such as context and evidence. (Short answer format)\n\n";
+      } else if (type.includes("Detailed")) {
+        body = "Detailed Explanation: Starting with historical background, then moving to contemporary relevance. Detailed analysis reveals multiple layers: first, theoretical underpinnings; second, practical applications; third, limitations. Scholars argue that this multifaceted approach yields deeper insight.\n\n";
+      } else if (type.includes("Step")) {
+        body = "Step 1: Identify the problem or question.\nStep 2: Gather relevant data and sources.\nStep 3: Analyze using ${subject} methodologies.\nStep 4: Synthesize findings.\nStep 5: Formulate a conclusion.\n\n";
+      } else {
+        body = "Long Answer Explanation: " + (level === 'University' ? "Advanced concepts include critical theory and empirical studies. " : "Core concepts include definitions and examples. ") + "The topic is significant because it relates to broader academic discourse. Research indicates several interpretations, which we outline below.\n\n";
+      }
+
+      let examples = "";
+      if (detailLevel >= 2) {
+        examples = "Example: Consider a case where " + subject + " intersects with everyday life. For instance, in " + subject + ", we can observe parallels to the question. (Add specific example here).\n\nAnother example: in academic writing, proper citation strengthens arguments. This principle applies directly to assignment structure.\n\n";
+      } else {
+        examples = "Example: " + subject + " provides a clear illustration of the concept. (Brief example.)\n\n";
+      }
+
+      let conclusion = "Conclusion: In summary, the assignment question requires synthesizing multiple perspectives. A well-reasoned answer incorporates structure, evidence, and clarity. Always revise and cite sources. This answer was generated for educational assistance only.";
+
+      if (detailLevel === 1) {
+        conclusion = "Conclusion: " + subject + " context provides a succinct answer. Further study recommended.";
+      }
+
+      let fullText = intro + "### Main Explanation\n" + body + "### Examples\n" + examples + "### Conclusion\n" + conclusion;
+      
+      // add headings for readability
+      fullText = fullText.replace(/###/g, '');
+      // but we need HTML formatting
+      const formattedHtml = `<h4>📌 Introduction</h4><p>${intro.replace(/\n/g, '<br>')}</p><h4>📖 Main Explanation</h4><p>${body.replace(/\n/g, '<br>')}</p><h4>💡 Examples</h4><p>${examples.replace(/\n/g, '<br>')}</p><h4>🔚 Conclusion</h4><p>${conclusion.replace(/\n/g, '<br>')}</p>`;
+      
+      return { plain: intro + body + examples + conclusion, html: formattedHtml };
+    }
+
+    function updateWordCount(text) {
+      const words = text.trim().split(/\s+/).filter(w => w.length > 0).length;
+      wordCountSpan.innerText = `Words: ${words}`;
+    }
+
+    function displayAnswer() {
+      if (!questionInput.value.trim()) {
+        alert('Please enter an assignment question.');
+        return;
+      }
+      const answerData = generateAnswer();
+      answerBody.innerHTML = answerData.html;
+      updateWordCount(answerData.plain);
+      outputSection.style.display = 'block';
+      // scroll to output
+      outputSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    generateBtn.addEventListener('click', displayAnswer);
+
+    // copy only visible text (html-free)
+    copyBtn.addEventListener('click', function() {
+      const textToCopy = answerBody.innerText; // plain text version
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        alert('Answer copied (plain text).');
+      }).catch(() => alert('Copy failed.'));
+    });
+
+    // copy all (including headings but plain)
+    copyAllBtn.addEventListener('click', function() {
+      const fullText = answerBody.innerText;
+      navigator.clipboard.writeText(fullText).then(() => {
+        alert('All content copied.');
+      });
+    });
+
+    downloadBtn.addEventListener('click', function() {
+      const content = answerBody.innerText;
+      const blob = new Blob([content], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `assignment_answer_${new Date().toISOString().slice(0,10)}.txt`;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+
+    // prefill a sample on first load? optional but not mandatory
+    window.addEventListener('load', function() {
+      // set a sample for demonstration
+      questionInput.value = "Discuss the impact of renewable energy on climate change.";
+      subjectInput.value = "Environmental Science";
+    });
+  })();
+</script>
+<!-- add a small disclaimer -->
+<div class="container" style="margin-top: 8px;">
+  <div class="main-content">
+    <div class="disclaimer">⚠️ Educational assistance only. Always verify with your instructor and cite appropriately. Generated content is not guaranteed to be unique.</div>
+  </div>
+</div>
+</body>
+</html>
+```
